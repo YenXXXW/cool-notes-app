@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/server.ts",
   "scripts": {
+    "build": "npm i",
     "dev": "nodemon src/server.ts",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
