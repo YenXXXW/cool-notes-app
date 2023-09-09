@@ -24,10 +24,13 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 }
 
 export async function fetchNotes(): Promise<Note[]> {
-  const response = await fetchData("http://localhost:3000/api/notes", {
-    method: "Get",
-    credentials: "include",
-  });
+  const response = await fetchData(
+    "https://cool-notes-app-lwl7.onrender.com/api/notes",
+    {
+      method: "Get",
+      credentials: "include",
+    }
+  );
   return response.json();
 }
 
@@ -37,14 +40,17 @@ export interface NoteInput {
 }
 
 export async function createNote(note: NoteInput): Promise<Note> {
-  const response = await fetchData("http://localhost:3000/api/notes", {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(note),
-  });
+  const response = await fetchData(
+    "https://cool-notes-app-lwl7.onrender.com/api/notes",
+    {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(note),
+    }
+  );
   return response.json();
 }
 
@@ -53,7 +59,7 @@ export async function updateNote(
   note: NoteInput
 ): Promise<Note> {
   const response = await fetchData(
-    `http://localhost:3000/api/notes/${noteId}`,
+    `https://cool-notes-app-lwl7.onrender.com/api/notes/${noteId}`,
     {
       method: "PATCH",
       credentials: "include",
@@ -67,7 +73,7 @@ export async function updateNote(
 }
 
 export async function deleteNote(noteId: string) {
-  await fetchData(`http://localhost:3000/api/notes/${noteId}`, {
+  await fetchData(`https://cool-notes-app-lwl7.onrender.com/notes/${noteId}`, {
     method: "DELETE",
     credentials: "include",
   });
