@@ -73,10 +73,13 @@ export async function updateNote(
 }
 
 export async function deleteNote(noteId: string) {
-  await fetchData(`https://cool-notes-app-lwl7.onrender.com/notes/${noteId}`, {
-    method: "DELETE",
-    credentials: "include",
-  });
+  await fetchData(
+    `https://cool-notes-app-lwl7.onrender.com/api/notes/${noteId}`,
+    {
+      method: "DELETE",
+      credentials: "include",
+    }
+  );
 }
 
 export default fetchData;

@@ -20,7 +20,7 @@ export interface SignUpCredentials {
 
 export async function SignUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchData(
-    "https://cool-notes-app-lwl7.onrender.com/users/signup",
+    "https://cool-notes-app-lwl7.onrender.com/api/users/signup",
     {
       method: "POST",
       credentials: "include",
@@ -40,7 +40,7 @@ export interface LoginCredentials {
 
 export async function Login(credentials: LoginCredentials): Promise<User> {
   const response = await fetchData(
-    "https://cool-notes-app-lwl7.onrender.com/users/login",
+    "https://cool-notes-app-lwl7.onrender.com/api/users/login",
     {
       method: "POST",
       credentials: "include",
@@ -54,7 +54,7 @@ export async function Login(credentials: LoginCredentials): Promise<User> {
 }
 
 export async function logout() {
-  await fetchData("https://cool-notes-app-lwl7.onrender.com/users/logout", {
+  await fetchData("https://cool-notes-app-lwl7.onrender.com/api/users/logout", {
     credentials: "include",
     method: "POST",
   });
