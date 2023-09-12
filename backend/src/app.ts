@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://cool-notes-app.vercel.app", "http://localhost:5173"],
+    origin: "https://cool-notes-app.vercel.app",
     credentials: true,
   })
 );
