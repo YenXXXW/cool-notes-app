@@ -12,16 +12,18 @@ import { requireAuth } from "./middleware/auth";
 
 const app = express();
 
+app.use(morgan("dev"));
+
+app.use(express.json());
+
 app.use(
   cors({
     origin: "https://cool-notes-app.vercel.app",
     credentials: true,
   })
 );
-app.set("trust proxy", 1);
-app.use(morgan("dev"));
 
-app.use(express.json());
+app.set("trust proxy", 1);
 
 app.use(
   session({
@@ -31,7 +33,6 @@ app.use(
     cookie: {
       sameSite: false,
       maxAge: 1000,
-      httpOnly: true,
     },
     rolling: true,
     store: MongoStore.create({
